@@ -9,11 +9,11 @@ import { Text } from "@jigsaw-ds/design-system/text";
 export default function HomePage() {
   return (
     <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center gap-6 px-8">
-      <div>
-        <Badge variant="success">Built on Jigsaw 0.3</Badge>
-      </div>
+      <Badge variant="success" className="self-start">
+        Built on Jigsaw 0.4
+      </Badge>
       <Heading as="h1">James Howell</Heading>
-      <Text as="p" muted classNameOverrides={{ component: "font-body" }}>
+      <Text as="p" muted>
         Frontend and design systems engineer. The full site is on its way.
       </Text>
       <div>
