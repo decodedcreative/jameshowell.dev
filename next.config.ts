@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Fully static site: `next build` writes plain HTML to out/, so it can be hosted anywhere.
   output: "export",
+  // Write each route as <route>/index.html, which every static host serves without rewrites.
+  trailingSlash: true,
   transpilePackages: ["@jigsaw-ds/design-system"],
   experimental: {
     optimizePackageImports: ["@phosphor-icons/react"],

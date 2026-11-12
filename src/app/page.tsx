@@ -1,14 +1,12 @@
-// Placeholder: proves the Jigsaw wiring. Replaced by the real home page in step 3.
-// Presentational components come from subpaths so they render as Server Components;
-// Button is a client component and creates its own boundary.
+// Placeholder: replaced by the real home page in step 3.
 import { Badge } from "@jigsaw-ds/design-system/badge";
-import { Button } from "@jigsaw-ds/design-system/button";
 import { Heading } from "@jigsaw-ds/design-system/heading";
 import { Text } from "@jigsaw-ds/design-system/text";
+import { Container } from "@/components/container";
 
 export default function HomePage() {
   return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center gap-6 px-8">
+    <Container className="flex flex-col gap-6 py-32">
       <Badge variant="success" className="self-start">
         Built on Jigsaw 0.4
       </Badge>
@@ -16,9 +14,6 @@ export default function HomePage() {
       <Text as="p" muted>
         Frontend and design systems engineer. The full site is on its way.
       </Text>
-      <div>
-        <Button variant="primary">It works</Button>
-      </div>
-    </main>
+    </Container>
   );
 }

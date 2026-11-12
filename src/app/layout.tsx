@@ -14,6 +14,10 @@ import "@jigsaw-ds/theme-portfolio/base.css";
 import "@jigsaw-ds/theme-portfolio/semantic.css";
 import "./globals.css";
 
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { Providers } from "./providers";
+
 export const metadata: Metadata = {
   title: {
     default: "James Howell — Frontend and design systems engineer",
@@ -26,8 +30,20 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB" data-theme="portfolio">
-      <body className="bg-surface-default text-foreground-primary font-body antialiased">
-        {children}
+      <body className="bg-surface-default text-foreground-primary font-body flex min-h-screen flex-col antialiased">
+        <a
+          href="#main"
+          className="bg-interactive-primary text-foreground-inverse sr-only z-50 rounded-md font-medium focus:not-sr-only focus:fixed focus:px-4 focus:py-2 focus:top-4 focus:left-4"
+        >
+          Skip to content
+        </a>
+        <Providers>
+          <SiteHeader />
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
+        </Providers>
       </body>
     </html>
   );
