@@ -20,7 +20,7 @@ It positions James for staff and senior frontend / design-systems roles, permane
   `globals.css` points Jigsaw's `--font-body` / `--font-heading` / `--font-mono` at them.
 - Theme CSS is imported unlayered in `src/app/layout.tsx`, in Jigsaw's required order; `<html data-theme="portfolio">`.
 - `src/app/providers.tsx`: React Aria `RouterProvider`, so Jigsaw links use Next's router.
-- **Copy lives in `src/content/`** (`site.ts`, `home.ts`). Components in `src/components/` are layout only.
+- **Copy lives in `src/content/`** (`site.ts`, `home.ts`, `bones.ts`, `jigsaw-page.ts`). Components in `src/components/` are layout only.
 - Use Jigsaw components (Heading, Text, Card, Badge, Link, LinkButton, Icon, Input, Navigation…) wherever they fit.
   Import presentational ones from subpaths (`@jigsaw-ds/design-system/heading`) so they stay Server Components.
   Components take `className` for outside layout and `classNameOverrides` for internal slots.
@@ -66,11 +66,16 @@ Without that there are two Reacts and Jigsaw links ignore the RouterProvider. Af
 2. ✅ Header, navigation (Jigsaw Navigation + MobileNavigation), footer, skip link
 3. ✅ Home page: hero with live Jigsaw specimen, track record, common problems, selected work, Jigsaw product
    section, how I work, experience, contact
-4. ⬜ Bones case study at `/work/bones` (placeholder page exists). Source: the "Case study" artboard on James's
-   Claude Design canvas "James Howell — Portfolio". Named client (Bella + Duke); leave out people's names,
-   Jira keys, repo/Storybook URLs, costs and release-credential detail. Avoid counts James asked to drop
-   (number of findings, decision records, migrated apps).
-5. ⬜ Jigsaw page at `/jigsaw` (placeholder page exists). Source: the "Jigsaw" artboard on the same canvas.
+4. ⬜ Bones case study at `/work/bones` (placeholder page exists). **All copy is in `src/content/bones.ts`**
+   (taken from the "Case study" artboard of James's Claude Design canvas, which Claude Code can't open; the
+   canvas link is https://claude.ai/artifact/NdnEiJHwjTv3sUKvDxiySA if James wants to check the layout).
+   Sections in order: hero + facts, where it started, findings, principles + workstreams, target-architecture
+   diagram, decision records, prove, shipped so far, takeaway quote, CTA. Bella + Duke is named; leave out
+   people's names, Jira keys, repo/Storybook URLs, costs and release-credential detail, and don't add counts
+   of findings, decision records or migrated apps.
+5. ⬜ Jigsaw page at `/jigsaw` (placeholder page exists). **Copy is in `src/content/jigsaw-page.ts`** (from
+   the "Jigsaw" artboard). Generate swatches, the type specimen and the semantic → value table from the
+   installed `@jigsaw-ds/*` tokens rather than hard-coding them.
 6. ⬜ README, GitHub Actions CI (typecheck, lint, build on PRs), metadata and social card, favicon, phone-width pass.
 7. ⬜ Hosting (static: GitHub Pages, Netlify or Vercel).
 
