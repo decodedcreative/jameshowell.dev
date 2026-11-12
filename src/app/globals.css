@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "@jigsaw-ds/tokens/tailwind-theme.css";
+@import "@jigsaw-ds/design-system/tailwind.css";
+
+/* Scan the site's own files for utility classes. */
+@source "../**/*.{ts,tsx}";
+
+/* Dark mode follows data-theme, as in Jigsaw's apps/web and Storybook. */
+@custom-variant dark (&:is([data-theme="dark"] *));
+
+/*
+  Fontsource's variable fonts register as "<Name> Variable", so point
+  Jigsaw's font tokens at those families.
+*/
+:root {
+  --font-body: "Inter Variable", system-ui, sans-serif;
+  --font-heading: "Space Grotesk Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+}
+
+/* Tailwind v4 defaults border-color to currentcolor; keep Jigsaw's expected default. */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
